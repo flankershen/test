@@ -2,10 +2,18 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 
+clear
+echo
+echo "#############################################################"
+echo "# One click Install Shadowsocks-Python server               #"
+echo "#############################################################"
+echo
+
 # Current folder
 cur_dir=`pwd`
 # Stream Ciphers
 ciphers=(
+rc4-md5
 aes-256-gcm
 aes-192-gcm
 aes-128-gcm
@@ -21,7 +29,6 @@ camellia-256-cfb
 chacha20-ietf-poly1305
 chacha20-ietf
 chacha20
-rc4-md5
 )
 # Color
 red='\033[0;31m'
@@ -334,7 +341,7 @@ install(){
         /etc/init.d/shadowsocks start
     else
         echo
-        echo -e "[${red}Error${plain}] Shadowsocks install failed!"
+        echo -e "[${red}Error${plain}] Shadowsocks install failed! please visit https://teddysun.com/342.html and contact."
         install_cleanup
         exit 1
     fi
@@ -347,6 +354,7 @@ install(){
     echo -e "Your Password         : \033[41;37m ${shadowsockspwd} \033[0m"
     echo -e "Your Encryption Method: \033[41;37m ${shadowsockscipher} \033[0m"
     echo
+    echo "Welcome to visit:https://teddysun.com/342.html"
     echo "Enjoy it!"
     echo
 }
